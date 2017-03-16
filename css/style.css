@@ -1,0 +1,1888 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin: 0;padding: 0;text-decoration: none;list-style: none;}
+.guang{
+	text-align: right;
+	font-size: 12px;
+	height: 40px;
+	color: #a8a8aa;
+	line-height: 40px;
+	max-width: 980px;
+	margin: auto;
+	text-align: right;
+}
+.daohang{
+	display: -webkit-flex;
+	display: flex;
+	list-style: none;
+	height: 44px;
+	background-color:rgba(0,0,0,0.8);
+	-webkit-justify-content:space-between;
+	justify-content: space-between;
+	margin-bottom: 0px;
+	max-width: 980px;
+	margin: auto;
+}
+.daohang li{
+	font-size: 14px;
+	line-height: 3;
+	text-align: center;
+	color: #fff;
+}
+.daohang a{
+	text-decoration: none;
+}
+.daohang li:hover{
+	color: rgba(230,230,230,0.65);
+}
+.ic{
+	font-size: 25px;
+	line-height: 1.9;
+}
+.icc{
+	font-size: 28px;
+	line-height: 1.6;
+	color: #fff;
+}
+.navbar{
+	margin-bottom: 0px;
+	z-index: 10;
+}
+.container-fluid{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.banner{
+	width: 100%;
+	height: calc(100vh - 240px);
+	position: relative;
+	overflow: hidden;
+}
+/*
+.pic{
+	width: 100%;
+	height: 100%;
+}
+.pic li{
+	width: 100%;
+	height: 100%;
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.pic li:nth-child(1){
+	background-image: url(../images/banner1/banner-1.png);
+	background-position: center center;
+	background-size:auto 115%;
+	background-repeat: no-repeat;
+	background-color: #0a0a0a;
+	display: block;
+}
+.pic li:nth-child(2){
+	background-image: url(../images/banner2/banner-2.png);
+	top: -5%;
+	background-position: center center;
+	background-size:auto 115%;
+	background-repeat: no-repeat;
+	background-color: #f2f2f2;
+}
+.pic li:nth-child(3){
+	background-image: url(../images/banner3/banner-3.png);
+	top: 20%;
+	background-position: center center;
+	background-size:auto 82%;
+	background-repeat: no-repeat;
+	background-color: #fff;
+}
+.jd{
+	width: 100%;
+	z-index: 100;
+	bottom: 30px;
+	position: absolute;
+	text-align: center;
+	line-height: 1;
+}
+.car{
+	display: inline-block;
+	margin: 0;
+}
+.car li{
+	float: left;
+	width: 50px;
+	height: 2px;
+	margin:0 5px;
+	position: relative;
+	background: rgba(128,128,128,0.2);
+	
+}
+.car li p{
+	width: 0;
+	height: 2px;
+	background-color: gray;
+}
+*/
+.slide_wrapper{
+	position:relative;
+	width:100%;
+	height:100%;
+	overflow:hidden;
+}
+.gallery_slide_wrapper{
+	position:relative;
+	width:100%;
+	height:100%;
+	transition:all .7s ease-in-out;
+}
+.gallery_item{
+	display:block;
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:1;
+	overflow:hidden;
+	width:100%;
+	height:100%;
+	color:#333;
+	will-change:transform;
+	transition:all .7s ease-in-out;
+	-webkit-transform:translate3d(100%,0,0);
+	transform:translate3d(100%,0,0)
+}
+.gallery_item[data-idx="0"]{
+	background-color:#0a0a0a;
+}
+.gallery_item[data-idx="1"]{
+	background-color:#f2f2f2;
+}
+.gallery_item[data-idx="3"]{
+	background-color:#fff;
+}
+.gallery_item[data-idx="0"] .gallery_image{
+	background-image:url(../images/banner1/banner-1.png);
+}
+.gallery_item[data-idx="1"] .gallery_image{
+	background-image:url(../images/banner2/banner-2.png);
+	background-position:center center;
+	top: -70px;
+}
+.gallery_item[data-idx="2"] .gallery_image{
+	background-image:url(../images/banner3/banner-3.png);
+}
+.gallery_item.zIndex{
+	z-index:0;
+}
+.gallery_item.zIndexTop{
+	z-index:3;
+}
+.gallery_item .gallery_image{
+	position:absolute;
+	z-index:1;
+	width:100%;
+	height:110%;
+	background-repeat:no-repeat;
+	background-size:contain;
+	background-position:bottom center;
+}
+.gallery_item_content{
+	position:absolute;
+	z-index:1000;
+	top:-40px;
+	height:100%;
+	width:100%;
+	text-align:center;
+	color: #333;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+}
+.gallery_item_lockup_wrapper{
+	position:absolute;
+	top:14%;
+	width:100%;
+	text-align:center;
+	z-index:2;
+}
+.nav_btn{
+	opacity:0;
+	top:0;
+	position:absolute;
+	cursor:pointer;
+	width:20%;
+	height:100%;
+	z-index:3;
+}
+.nav_btn:hover{
+	opacity:.5;
+}
+.nav_btn.left{
+	left:0;
+}
+.nav_btn.left .btn_left{
+	position: absolute;
+	background-image: url(../images/yb.png);
+	top:50%;
+	left:50px;
+	width: 60px;
+	height: 100px;
+	margin-left: -30px;
+	margin-top: -50px;
+	background-size:auto 50%;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+.nav_btn.right{
+	right:0;
+}
+.nav_btn.right .btn_right{
+	position: absolute;
+	top:50%;
+	right:50px;
+	width: 60px;
+	height: 100px;
+	margin-left: -30px;
+	margin-top: -50px;
+	background: url(../images/zb.png);
+	background-size:auto 50%;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+.nav{
+	position:absolute;
+	bottom:25px;
+	left:50%;
+	-webkit-transform:translateX(-50%);
+	transform:translateX(-50%);
+	list-style-type:none;
+	z-index:10;
+}
+.nav_slide{
+	position:relative;
+	display:inline-block;
+	width:50px;
+	height:2px;
+	background:#fff;
+	background:rgba(128,128,128,.2);
+	margin-left:10px;
+	cursor:pointer;
+}
+.nav_slide:before{
+	content:'';
+	position:absolute;
+	left:0;
+	top:0;
+	width:0;
+	height:2px;
+	background:0 0;
+	-webkit-transition:all .5s ease-in-out;
+	-moz-transition:all .5s ease-in-out;
+	transition:all .5s ease-in-out;
+}
+.nav_slide.active:before{
+	width:100%;
+}
+.nav_slide:after{
+	content:'';
+	position:absolute;
+	left:0;
+	top:-9px;
+	width:100%;
+	height:20px;
+}
+.nav_slide:first-child{
+	margin-left:0;
+}
+.nav_slide .slide_btn{
+	width:100%;
+	height:2px;
+	background-color:transparent;
+}
+.nav_slide.active .slide_btn{
+	background:gray;
+}
+.nav_slide.autoplay .slide_btn{
+	background:gray;
+	-webkit-animation:scaleX 5s linear;
+	-webkit-animation-fill-mode:forwards;
+	transform-origin:0;
+	-moz-animation:scaleX 5s linear;
+	-moz-animation-fill-mode:forwards;
+	transform-origin:0;
+}
+@-webkit-keyframes scaleX{
+	0%{-webkit-transform:scaleX(0)}
+	100%{-webkit-transform:scaleX(1)}
+}
+@-moz-keyframes scaleX{
+	0%{-moz-transform:scaleX(0)}
+	100%{-moz-transform:scaleX(1)}
+}
+.nav > li{
+	display: inline-block;
+}
+.logo-watch{
+	width: 144px;
+	height: 55px;
+	background-size: 144px 55px;
+	background-repeat: no-repeat;
+	background-image: url(../images/watch.png);
+	left: 50%;
+	margin-left: -72px;
+	position: relative;
+	margin-top: -8px;
+}
+.this{
+	font-size: 48px;
+	margin-top: -10px;
+}
+.bs{
+	color: #fff;
+	font-weight: 500;
+}
+.bs1{
+	font-size: 32px
+}
+.in{
+	position: absolute;
+	z-index: 1;
+	width: 100%;
+	bottom: -550px;
+	font-size: 40px;
+	font-weight: 500;
+}
+.ma{
+	font-size: 32px;
+	font-weight: 500;
+}
+.ma1{
+	font-size: 48px;
+	font-weight: 500;
+	margin-top: -6px;
+	color: #333;
+}
+.zhan{
+	width: 25%;
+	box-sizing: border-box;
+	border-top: 2px solid #fff;
+	border-right: 2px solid #fff;	
+	display: block;
+	background-position: center center;
+	height: 200px;
+}
+.tu1{
+	background-image: url(../images/promo/promo-label.png);
+}
+.tu2{
+	background-image:url(../images/promo/promo-pro.png);
+}
+.tu3{
+	background-image: url(../images/promo/promo-pods.png);
+}
+.tu4{
+	background-image: url(../images/promo/promo-iphone.png);
+}
+.ac{
+	border-bottom: 1px solid #d6d6d6;
+	padding: 17px 0px 4px;
+}
+.weibu{
+	max-width: 980px;
+	margin: auto;
+}
+.i7{
+	font-size: 11px;
+	font-weight: 400;
+	letter-spacing: .005em;
+	color: #888;
+}
+.db{
+	width: 20%;
+	float: left;
+	padding-top: 20px;
+}
+.db ul li a{
+	font-size: 11px;
+	margin-bottom: 6px;
+	color: #555;
+}
+.bt{
+	font-weight: 600;
+	color: #000;
+	font-size: 11px;
+	margin-top: 0px;
+}
+.zui{
+	padding: 34px 0 21px;	
+}
+.i8{
+	border-bottom: 1px solid #d6d6d6;
+	padding-bottom: 5px;
+}
+.wai li a{
+	float: left;
+	font-size: 11px;
+	font-weight: 400;
+	letter-spacing: .005em;
+	color: #888;
+	margin-left: 12px;
+	border-right: 1px solid #d6d6d6;
+	padding-right: 12px;
+	color: #555;
+}
+.d1{
+	margin-left: 30px !important;
+}
+.d5{
+	border: none !important;
+}
+.y2{
+	padding: 0 20px;
+	margin: 0 auto;
+	min-height: 90px;
+	margin-top: 3px;
+	width: 288px;
+	left: -130px;
+}
+.y2 li{
+	border-top: 1px solid #e3e3e3;
+	text-align: left;
+}
+.y2 p{
+	color: #888;
+	padding: 20px 0;
+	text-align: center;
+	margin: 0;
+	font-size: 15px;
+}
+.y1{
+	color: #0070c9 !important;
+	text-align: left;
+}
+.y2 li span{
+	margin-left: 10px;
+}
+.y2 a span:hover{
+	text-decoration: underline;
+}
+.y2 li:nth-child(3){
+/*
+	list-style-image:url(../images/gw/bag.png);
+	list-style-type: circle;
+	padding-left: 10px;
+*/
+	padding-left: 1px;
+}
+.y2 li:nth-child(4){
+/*
+	list-style-image:url(../images/gw/favorites.png);
+	list-style-type: circle;
+	padding-left: 10px;
+*/
+	padding-left: -1px;
+}
+.y2 li:nth-child(5){
+/*
+	list-style-image:url(../images/gw/orders.png);
+	list-style-type: circle;
+	padding-left: 10px;
+*/
+	padding-left: 1px;
+}
+.y2 li:nth-child(6){
+/*
+	list-style-image:url(../images/gw/account.png);
+	list-style-type: circle;
+	padding-left: 10px;
+*/
+	padding-left: 1px;
+}
+.y2 li:nth-child(7){
+/*
+	list-style-image:url(../images/gw/signIn.png);
+	list-style-type: circle;
+	padding-left: 10px;
+*/
+	padding-left: 1px;
+}
+.fk{
+	width: 15px;
+	height: 15px;
+	border-top: 1px solid rgba(0,0,0,0.15);
+	border-left: 1px solid rgba(0,0,0,0.15);
+	position: absolute;
+	top: -8px;
+	left: 136px;
+	background-color: #fff;
+	transform:rotate(45deg);
+	-ms-transform:rotate(45deg); 
+	-moz-transform:rotate(45deg); 
+	-webkit-transform:rotate(45deg); 
+	-o-transform:rotate(45deg);
+}
+.nav2{
+	max-width: 760px;
+	text-align: center;
+	margin: auto;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: flex;
+	-moz-justify-content:space-between;
+	-webkit-justify-content:space-between;
+	justify-content: space-between;
+	padding: 12px 0;
+	animation:nav2 8s;
+	-moz-animation:nav2 8s; /* Firefox */
+	-webkit-animation:nav2 8s; /* Safari and Chrome */
+	-o-animation:nav2 8s; /* Opera */
+	animation-fill-mode :forwards;
+	animation-delay: 500ms;
+	opacity:0.0;
+}
+@keyframes nav2
+{
+0%   {opacity:0.0;}
+100% {opacity:1.0;}
+}
+
+@-moz-keyframes nav2 /* Firefox */
+{
+0%   {opacity:0.0;}
+100% {opacity:1.0;}
+}
+
+@-webkit-keyframes nav2 /* Safari and Chrome */
+{
+0%   {opacity:0.0;}
+100% {opacity:1.0;}
+}
+
+@-o-keyframes nav2  /*Opera*/ 
+{
+0%   {opacity:0.0;}
+100% {opacity:1.0;}
+}
+.nav-2{
+	text-decoration: none;
+	color: #333;
+	font-size: 11px;
+	text-align: center;
+}
+.nav-2:hover{
+	text-decoration: none;
+	color: #0070c9;
+}
+.nav2 li{
+	float: left;
+}
+.nav2 li span{
+	font-size: 9px;
+	color: #e85d00;
+}
+.nav2 li span:hover{
+	text-decoration: none;
+}
+.mp{
+	font-size: 32px;
+	text-align: center;
+}
+.at{
+	font-size: 56px;
+	text-align: center;
+}
+.mai{
+	font-size: 22px;
+	letter-spacing: .016em;
+	font-weight: 300;
+	text-align: center;
+	margin-top: 22px;
+}
+.more{
+	margin-left: 0.55em;
+	margin-right: 0.55em;
+	color: #0070c9;
+}
+.more:hover{
+	color: #0070c9;
+}
+.pro{
+	text-align: center;
+	width: 100%;
+	height: 627px;
+/*
+	background-size: 2560px 627px;
+	background-repeat: no-repeat;
+*/
+	background-image: url(../images/MacBook-Pro/macbook-pro/macbookpro-1.png);
+	background-position: center center;
+	margin-top: -100px;
+}
+.pro1{
+	text-align: center;
+	width: 100%;
+	height: 306px;
+	background-repeat: no-repeat;
+	background-image:url(../images/MacBook-Pro/macbook/macbook_large.png);
+	background-position: center center;
+	margin-top: 105px;
+	margin-bottom: 135px;
+}
+.pro2{
+	text-align: center;
+	width: 100%;
+	height: 385px;
+	background-repeat: no-repeat;
+	background-image:url(../images/MacBook-Pro/imac/imac-1.png);
+	background-position: center center;
+	margin-top: 70px;
+	margin-bottom: 90px;
+}
+.pro3{
+	text-align: center;
+	width: 100%;
+	height: 419px;
+	background-repeat: no-repeat;
+	background-image:url(../images/MacBook-Pro/mac/compare-1.png);
+	background-position: center center;
+	margin-top: 94px;
+}
+.duibi{
+	padding-top: 67px;
+	padding-bottom: 91px;
+}
+.liaojie{
+	padding-top: 166px;
+	padding-bottom: 36px;
+}
+.logo-a{
+	background-image: url(../images/MacBook-Pro/icon_pickup_large.png);
+	width: 38px;
+	height: 44px;
+	margin: auto;
+}
+.logo-b{
+	background-image:url(../images/MacBook-Pro/icon_shipping_large.png);
+	width: 40px;
+	height: 44px;
+	margin: auto;
+}
+.l-2{
+	font-size: 19px;
+}
+.wen{
+	font-size: 14px;
+	text-align: center;
+	margin-bottom: 8px;
+}
+.liao-1{
+	font-size: 14px;
+	text-align: center;
+}
+.peijian{
+	width: 100%;
+	background: linear-gradient(#fff, #FDFDFD, #F7F7F7);
+	padding-bottom: 120px;
+}
+.pj{
+	width: 1619px;
+	height: 389px;
+	margin: auto;
+	background-image: url(../images/MacBook-Pro/mac-1/accessories_large.png);
+}
+.pjx{
+	text-align: center;
+	margin-top: 128px;
+}
+.pjx h3{
+	margin-bottom: 20px;
+	color: #333;
+	font-size: 40px;
+	font-weight: 500;
+}
+.pjx a{
+	color: #0070c9;
+	font-size: 17px;
+}
+.xitong{
+	padding-top: 65px;
+	background: linear-gradient(#fff, #FDFDFD, #F7F7F7);
+	padding-bottom: 110px;
+}
+.xt-tu{
+	background-image: url(../images/MacBook-Pro/mac-1/macos_finder_icloud_large.png);
+	width: 625px;
+	height: 365px;
+	background-repeat: no-repeat;
+	margin: 50px auto 0;
+}
+.mos{
+	margin-bottom: 15px;
+	font-size: 32px;
+	font-weight: 500;
+	color: #333;
+}
+.copy{
+	font-size: 15px;
+	color: #333;
+	font-weight: 400;
+	line-height: 1.8em;
+}
+.nza{
+	margin-top: 100px;
+	margin-bottom: 110px;
+	max-width: 980px;
+}
+.biaoti{
+	text-align: center;
+}
+.biaoti h3{
+	font-size: 40px;
+	font-weight: 500;
+	margin-top: 8px;
+}
+.biaoti p{
+	width: 735px;
+	margin: auto;
+	margin-top: 26px;
+	min-height: 52px;
+	font-size: 14.5px;
+	line-height: 2em;
+}
+.apps{
+	margin:50px -24px 15px;
+}
+.menu{
+	clear:both;
+	overflow: hidden;
+	text-align: center;
+	padding-bottom: 50px;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content:center;
+	justify-content: center;
+}
+.menu li{
+	float: left;
+	text-align: center;
+}
+.menu li p{
+	font-size: 14px;
+	color: #333;
+	border-bottom: 1px solid #d6d6d6;
+	padding-bottom: 5px;
+	display: block;
+	min-width: 106px;
+	text-align: center;
+}
+.menu li a{
+	text-decoration: none;
+}
+.menu .active p{
+   border-bottom-color: #333;
+}
+.content .app{
+	display: none;
+}
+.dtu{
+	width: 670px;
+	height: 540px;
+	background-size: 670px 540px;
+	background-repeat: no-repeat;
+	margin-left: -78px;
+	background-image:url(../images/MacBook-Pro/app-icon/bia_photos_large.png);
+}
+.zpt{
+	width: 74px;
+	height: 74px;
+	background-size: 74px 74px;
+	background-repeat: no-repeat;
+	background-image: url(../images/MacBook-Pro/app-icon/1.png);
+	min-height: 97px;
+}
+.zp h4{
+	font-size: 32px;
+	font-weight: 500;
+	line-height: 1.25;
+}
+.zp p{
+	font-size: 17px;
+	margin-top: 12px;
+	line-height: 1.5em;
+}
+.dtu1{
+	background-image:url(../images/MacBook-Pro/app-icon/bia_imovie_large.png);
+}
+.zpt1{
+	background-image: url(../images/MacBook-Pro/app-icon/2.png);
+	width: 92px;
+	height: 92px;
+	background-size: 92px 92px;
+	min-height: 97px;
+}
+.dtu2{
+	background-image: url(../images/MacBook-Pro/app-icon/bia_garageband_large.png);
+}
+.zpt2{
+	background-image: url(../images/MacBook-Pro/app-icon/3.png);
+	width: 77px;
+	height: 97px;
+	background-size: 77px 97px;
+}
+.dtu3{
+	background-image: url(../images/MacBook-Pro/app-icon/bia_pages_large.png);
+}
+.zpt3{
+	background-image: url(../images/MacBook-Pro/app-icon/4.png);
+	width: 77px;
+	height: 90px;
+	background-size: 77px 90px;
+}
+.dtu4{
+	background-image: url(../images/MacBook-Pro/app-icon/bia_numbers_large.png);
+}
+.zpt4{
+	background-image:url(../images/MacBook-Pro/app-icon/5.png);
+	width: 81px;
+	height: 76px;
+	background-size: 81px 76px;
+}
+.dtu5{
+	background-image: url(../images/MacBook-Pro/app-icon/bia_keynote_large.png);
+}
+.zpt5{
+	background-image: url(../images/MacBook-Pro/app-icon/6.png);
+	width: 65px;
+	height: 76px;
+	background-size: 65px 76px;
+}
+.dtu6{
+	background-image: url(../images/MacBook-Pro/app-icon/bia_safari_large.png);
+}
+.zpt6{
+	background-image: url(../images/MacBook-Pro/app-icon/7.png);
+	width: 71px;
+	height: 71px;
+	background-size: 71px 71px;
+}
+.dtub{
+	background-image: url(../images/MacBook-Pro/app-icon/pro_finalcut_large.png);
+	width: 791px;
+	height: 461px;
+	background-size: 791px 461px;
+}
+.zp1{
+	background-image: url(../images/MacBook-Pro/app-icon/1x.png);
+	width: 74px;
+	height: 72px;
+	background-size: 74px 72px;
+}
+.dtub1{
+	background-image: url(../images/MacBook-Pro/app-icon/pro_logicpro_large.png);
+}
+.zp2{
+	background-image: url(../images/MacBook-Pro/app-icon/2x.png);
+	width: 70px;
+	height: 79px;
+	background-size: 70px 79px;
+}
+.dtub2{
+	background-image: url(../images/MacBook-Pro/app-icon/pro_motion_large.png);
+}
+.zp3{
+	background-image: url(../images/MacBook-Pro/app-icon/3x.png);
+	width: 64px;
+	height: 66px;
+	background-size: 64px 66px;
+}
+.dtub3{
+	background-image: url(../images/MacBook-Pro/app-icon/pro_compressor_large.png);
+}
+.zp4{
+	background-image: url(../images/MacBook-Pro/app-icon/4x.png);
+	width: 70px;
+	height: 76px;
+	background-size: 70px 76px;
+}
+.dtub4{
+	background-image: url(../images/MacBook-Pro/app-icon/pro_mainstage_large.png);
+}
+.zp5{
+	background-image: url(../images/MacBook-Pro/app-icon/5x.png);
+	width: 66px;
+	height: 82px;
+	background-size: 66px 82px;
+}
+.macjy{
+	background-image: url(../images/MacBook-Pro/macly/education_large.jpg);
+	background-size: cover !important;
+	background-position: bottom;
+	width: 100%;
+	height: 600px;
+	background-repeat: no-repeat;
+	margin-bottom: 7px;
+	text-align: center;
+	color: #fff;
+}
+.macsw{
+	background-image: url(../images/MacBook-Pro/macly/business_large.jpg);
+}
+.macjz{
+	background-image: url(../images/MacBook-Pro/macly/workshops_large.jpg);
+	margin-bottom: 0px;
+}
+.macwb{
+	padding-top: 82px;
+}
+.macwb h3{
+	font-size: 40px;
+	font-weight: 500;
+}
+.macwb p{
+	margin-top: 21px;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 17px;
+	font-weight: 400;
+}
+.macwb a{
+	color: #fff;
+	font-size: 15px;
+	font-weight: 400;
+}
+.icbc{
+	color:#555;
+}
+.icbc:hover{
+	color: #333;
+}
+.yb1{
+	height: 18px;
+	width: 8px;
+	margin-left: 5px;
+	margin-right: 10px;
+	float: left;
+}
+.i-pro{
+	text-align: center;
+	margin-top: 70px;
+}
+.i-pro h2{
+	font-size: 56px;
+	font-weight: 500;
+	color: #333;
+	font-family:微软雅黑;
+}
+.i-pro h3{
+	font-size: 40px;
+	line-height: 1.15;
+	font-weight: 300;
+	font-family:微软雅黑;
+}
+.ipro-t{
+	background-image: url(../images/ipad/ipad-pro/1.png);
+	width: 1222px;
+	height: 570px;
+	background-size: 1222px 570px;
+	background-repeat: no-repeat;
+	margin-top: 58px;
+}
+.row .a-pen{
+	text-align: left;
+	width: 40%;
+	margin-top: 65px;
+	margin-left: 87px;
+}
+.a-pen h3{
+	font-size: 48px;
+	font-weight: 500;
+	text-align: center;
+}
+.a-pen h4{
+	font-size: 48px;
+	font-weight: 300;
+	text-align: center;
+}
+.apple-pt{
+	background-image: url(../images/ipad/ipad-pro/2.png);
+	width: 1413px;
+	height: 567px;
+	background-size: 1413px 567px;
+	background-repeat: no-repeat;
+	margin-left: 230px;
+	margin-top: -180px;
+}
+.s-kt{
+	background-image: url(../images/ipad/ipad-pro/3.png);
+	width: 988px;
+	height: 846px;
+	background-size: 988px 846px;
+	background-repeat: no-repeat;
+	margin-left: -395px;
+	margin-top: -90px;
+}
+.sm-key{
+	margin-top: -713px !important;
+	margin-left: 390px !important;
+}
+.i-apw{
+	width: 66.66%;
+	margin: auto;
+	margin-top: 713px;	
+	text-align: center;
+}
+.i-apw h2{
+	font-size: 40px;
+	font-weight: 500;
+	margin-bottom: 20px;
+	color: #333;
+}
+.i-apw p{
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 20px;
+}
+.ipa-t{
+	background-image: url(../images/ipad/ipad-pro/4.png);
+	width: 100%;
+	height: 450px;
+	background-size: 2269px 319px;
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	margin-top: -180px;
+}
+.ip-ar{
+	background-image: url(../images/ipad/ipad-pro/5.png);
+	width: 1103px;
+	height: 714px;
+	background-size: 1103px 714px;
+	background-repeat: no-repeat;
+	margin-top: 128px;
+	margin-left: -255px;
+}
+.ip-aw{
+	text-align: center;
+	margin-top: -700px;
+	margin-left: 350px;
+}
+.ip-aw h2{
+	font-size: 32px;
+	font-weight: 500;
+}
+.ip-aw h3{
+	font-size: 46px;
+	font-weight: 500;
+}
+.ip-mw{
+	text-align: center;
+	margin-top: 700px;
+}
+.ip-mw h2{
+	font-size: 32px;
+	font-weight: 500;
+}
+.ip-mw h3{
+	font-size: 46px;
+	font-weight: 500;
+}
+.ip-mt{
+	background-image: url(../images/ipad/ipad-pro/6.png);
+	width: 1215px;
+	height: 1011px;
+	background-size: 1215px 1011px;
+	background-repeat: no-repeat;
+	margin-top: 74px;
+}
+.ios10{
+	text-align: center;
+	margin: auto;
+}
+.i-10{
+	background-image: url(../images/ipad/ipad-pro/10logo.png);
+	width: 85px;
+	height: 85px;
+	background-size: 85px 85px;
+	background-repeat: no-repeat;
+	margin: auto;
+}
+.i10-w h2{
+	font-size: 37px;
+	font-weight: 500;
+	margin-top: 34px;
+	margin-bottom: 10px;
+}
+.i10-w p{
+	width: 50%;
+	margin: auto;
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 28px;
+	margin-bottom: 10px;
+}
+.i10-t{
+	background-image: url(../images/ipad/ipad-pro/7.png);
+	width: 1232px;
+	height: 420px;
+	background-size: 1232px 420px;
+	background-repeat: no-repeat;
+	margin-top: 8px;
+	margin-left: -40px;
+}
+.ip-t{
+	background-image: url(../images/ipad/ipad-pro/8.png);
+	width: 1263px;
+	height: 263px;
+	background-size: 1263px 263px;
+	background-repeat: no-repeat;
+	margin-left: -40px;
+	margin-top: 81px;
+}
+.ip-row{
+	padding-top: 94px;
+	padding-bottom: 73px;
+	background-color: #f7f7f7;
+}
+.ip-j h2{
+	font-size: 40px;
+	font-weight: 500;
+	margin-bottom: 14px;
+	text-align: center;
+	margin-left: 40px;
+}
+.ip-j a{
+	font-size: 16px;
+	text-align: center;
+}
+.ipad{
+	text-align: center;
+	margin-bottom: 7px;
+	width: 100%;
+	height: 800px;
+	background-size: 2560px  800px;
+	background-repeat: no-repeat;
+	background-position: bottom center;
+	background-image:url(../images/ipad/ipad-pro/9.png);
+}
+.ipad-jy{
+	background-image:url(../images/ipad/ipad-pro/10.png);
+}
+.ipad-sw{
+	background-image: url(../images/ipad/ipad-pro/11.png);
+}
+.ipad-jz{
+	background-image: url(../images/ipad/ipad-pro/12.png);
+}
+.ip-jy{
+	color: #fff;
+	padding-top: 16%;
+}
+.ip-jy h2{
+	font-size: 30px;
+	font-weight: 500;
+	font-family: 微软雅黑;
+}
+.ip-jy p{
+	font-size: 15px;
+	font-family: 微软雅黑;
+	padding-bottom: 10px;
+}
+.nab2 li a{
+	color: #fff;
+}
+.zhuti{
+	color: #fff;
+	padding-top: 37px;
+}
+.lj{
+	text-align: center;
+	margin-top: 20px;
+	font-size: 16px;
+	font-family: 微软雅黑;
+	margin-left: 5px;
+}
+.ip-7{
+	background-image: url(../images/iphone/banner/1.png);
+	width: 1402px;
+	height: 522px;
+	background-size: 1402px 522px;
+	background-repeat: no-repeat;
+	margin-top: 70px;
+	margin-left: 100px;
+}
+.pj1{
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content:space-between;
+	justify-content: space-between;
+	margin-bottom: 50px;
+}
+.ejt{
+	background-image: url(../images/iphone/neirong/1.png);
+	width: 652px;
+	height: 712px;
+	background-size: 652px 712px;
+	background-repeat: no-repeat;
+}
+.sjt{
+	background-image: url(../images/iphone/neirong/2.png);
+	width: 652px;
+	height: 712px;
+	background-size: 652px 712px;
+	background-repeat: no-repeat;
+}
+.ej h3{
+	font-size: 22px;
+	font-family: 微软雅黑;
+	margin-bottom: 16px;
+}
+.ej h4{
+	font-size: 38px;
+	font-weight: 500;
+	font-family: 微软雅黑;
+	text-align: center;
+	margin-bottom: .75em;
+}
+.jxbj{
+	max-width: 1350px;
+	text-align: center;
+	margin: auto;
+	background-color: #fff;
+	padding-top: 76px;
+	padding-bottom: 76px;
+}
+.jixing{
+	width: 1030px;
+	text-align: center;
+	margin: auto;
+	margin-top: 82px;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content:space-between;
+	justify-content: space-between;
+}
+.hxt{
+	background-image: url(../images/iphone/neirong/3.png);
+	width: 652px;
+	height: 380px;
+	background-size: 652px 380px;
+	background-repeat: no-repeat;
+}
+.hx{
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content:space-between;
+	justify-content: space-between;	
+}
+.jiaru h2{
+	padding-top: 92px;
+	padding-bottom: 70px;
+	font-size: 38px;
+	font-family: 微软雅黑;
+	font-weight: 500;
+}
+.fl{
+	margin-top: -15%;
+}
+.fl li{
+	list-style-image: url(../images/dui.png);
+	text-align: left;
+	margin-left: 28%;
+	margin-bottom: 15px;
+	font-size: 16px;
+	font-weight: 400;
+}
+.jiaru p{
+	font-size: 18px;
+	margin: auto;
+	margin-top: -50px;
+	padding-bottom: 20px;
+	width: 50%;
+}
+.ht{
+	background-image: url(../images/iphone/neirong/4.png);
+	width: 504px;
+	height: 700px;
+	background-size: 504px 700px;
+	background-repeat: no-repeat;
+	margin: auto;
+	margin-top: 83px;
+	
+}
+.jiaru a{
+	font-size: 16px;
+}
+.jiaru{
+	width: 652px;
+	height: 814px;
+	background-color: #fff;
+	overflow: hidden;
+	text-align: center;
+}
+.i-zp{
+	background-image: url(../images/iphone/neirong/5.png);
+	width: 1350px;
+	height: 720px;
+	background-size: 1350px 720px;
+	background-repeat: no-repeat;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content:space-between;
+	justify-content: space-between;	
+}
+.sb{
+	width: 500px;
+	padding-top: 300px;
+}
+.sb h3{
+	font-size: 38px;
+	font-weight: 500;
+}
+.pay-z{
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content:center;
+	justify-content: center;
+}
+.zf{
+	background-image: url(../images/iphone/neirong/6.png);
+	width: 343px;
+	height: 472px;
+	background-size: 343px 472px;
+	background-repeat: no-repeat;
+	margin-right: 145px;
+}
+.zf-z{
+	width: 15%;
+	height: 25%;
+	text-align: center;
+	font-size: 15px;
+	padding-top: 150px;
+}
+.sw-t{
+	background-image: url(../images/iphone/neirong/8.png);
+	height: 506px;
+	background-size: 2560px 506px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.sw-n{
+	width: 68%;
+	text-align: center;
+	padding-top: 9%;
+}
+.sw-n h3{
+	font-weight: 500;;
+	font-size: 36px;
+	color: #fff;
+	margin-bottom: 20px;
+}
+.sw-n a{
+	color: #6bf;
+	font-size: 15px;
+	line-height: 30px;
+}
+.zytk{
+	font-size: 11px;
+	font-weight: 400;
+	line-height: 25px;
+	margin-left: -15px;
+	color: #888;
+	border-bottom: 1px solid #d6d6d6;
+	padding-bottom: 15px;
+	padding-top: 20px;
+}
+.wa-b{
+	background-image: url(../images/Watch/neirong/2.png);
+	width: 100%;
+	height: 980px;
+	background-size: 2560px 980px;
+	background-repeat: no-repeat;
+	background-position:center;
+	z-index: -1;
+	text-align: center;
+}
+.wa-logo{
+	background-image:url(../images/Watch/neirong/1.png);
+	width: 184px;
+	height: 71px;
+	background-size: 184px 71px;
+	background-repeat: no-repeat;
+	margin: auto;
+	margin-top: 60px;
+}
+.wa-l{
+	font-size: 20px;
+	margin-top: 20px;
+	color: #0070c9;
+}
+.wa-zb{
+	width: 650px;
+	height: 950px;
+	padding-right: 25px;
+	overflow: hidden;
+	position: relative;
+	background-color: #F2F2F2;
+	text-align: center;
+}
+.zb-wt{
+	background-image:url(../images/Watch/neirong/5.png);
+	width: 764px;
+	height: 824px;
+	background-size: 764px 824px;
+	background-repeat: no-repeat;
+	position: absolute;
+	bottom: -128px;
+	right: 13%;	
+}
+.wa-nz a{
+	font-size: 22px;
+	line-height: 1.45455;
+	font-weight: 300;
+}
+.wa-bl{
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content:space-between;
+	justify-content: space-between;
+	margin-bottom: 50px;
+}
+.yb-wt{
+	background-image: url(../images/Watch/neirong/6.png);
+	width: 536px;
+	height: 635px;
+	background-size: 536px 635px;
+	background-repeat: no-repeat;
+	position: absolute;
+	bottom: 40px;
+	left: 10%;
+}
+.wa-ed{
+	background-color: #f2f2f2;
+	text-align: center;
+	padding-top: 75px;
+	height: 795px;
+	position: relative;
+	margin-bottom: 50px;
+}
+.we-t{
+	background-image: url(../images/Watch/neirong/8.png);
+	width: 1350px;
+	height: 502px;
+	background-repeat: no-repeat;
+	position: absolute;
+	bottom: 0px;
+}
+.we-logo{
+	background-image: url(../images/Watch/neirong/7.png);
+	width: 223px;
+	height: 25px;
+	background-size: 223px 25px;
+	background-repeat: no-repeat;
+	margin: auto;
+	margin-bottom: 13px;
+}
+.wa-ed p{
+	font-size: 22px;
+	line-height: 1.20849;
+	font-weight: 300;
+	font-family: "SF Pro SC","SF Pro Display","SF Pro Icons","PingFang SC","Helvetica Neue","Helvetica","Arial",sans-serif;
+	margin-bottom: 27px;
+}
+.wa-ed a{
+	font-size: 22px;
+	line-height: 1.45455;
+	font-weight: 300;
+}
+.ws-t{
+	background-image: url(../images/Watch/neirong/9.png);
+	width: 100%;
+	height: 472px;
+	background-size: 858px 472px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	position: absolute;
+	top: 53px;
+	
+}
+.wa-se{
+	background-color: #f2f2f2;
+	position: relative;
+	height: 700px;
+	margin: auto;
+	text-align: center;
+	margin-bottom: 50px;
+}
+.ws-logo{
+	background-image: url(../images/Watch/neirong/10.png);
+	width: 100%;
+	height: 44px;
+	background-size: 117px 44px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	position: absolute;
+	top: 540px;
+}
+.wa-se a{
+	font-size: 22px;
+	line-height: 1.45455;
+	font-weight: 300;
+}
+.ws-a{
+	position: absolute;
+	top: 600px;
+	width: 100%;
+}
+.hd-t{
+	background-image: url(../images/Watch/neirong/11.png);
+	width: 1350px;
+	height: 700px;
+	background-size: 1350px 700px;
+	background-repeat: no-repeat;
+}
+.hd-z{
+	text-align: center;
+	margin-bottom: 4.5em;
+}
+.hd-z h3{
+	font-size: 32px;
+	font-weight: 500;
+	margin-top: 1.05em;
+}
+.hd-z a{
+	font-size: 20px;
+	line-height: 1.45455;
+	font-weight: 300;
+	color: #0070c9;
+}
+.bd-t{
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content:space-between;
+	justify-content: space-between;		
+}
+.bz-t{
+	background-image: url(../images/Watch/neirong/12.png);
+	width: 650px;
+	height: 700px;
+	background-size: 625px 700px;
+	background-repeat: no-repeat;
+}
+.by-t{
+	background-image: url(../images/Watch/neirong/13.png);
+	width: 650px;
+	height: 700px;
+	background-size: 625px 700px;
+	background-repeat: no-repeat;
+}
+.bd-z{
+	text-align: center;
+	margin-bottom: 4.5em;
+}
+.bd-z h3{
+	font-size: 32px;
+	font-weight: 500;
+	letter-spacing: .011em;
+	margin: 1.05em 0 0.1em;
+}
+.bd-z a{
+	font-size: 20px;
+	line-height: 1.45455;
+	font-weight: 300;
+	margin-top: .75em;
+}
+.bk-t{
+	background-image:url(../images/Watch/neirong/14.png);
+	height: 243px;
+	background-size: 944px 243px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	margin: 105px 0px;
+}
+.bk-z{
+	text-align: center;
+	margin-bottom: 4.5em;
+}
+.bk-z h3{
+	font-size: 32px;
+	font-weight: 500;
+	letter-spacing: .011em;
+	margin: 1.05em 0 0.1em;
+}
+.bk-z a{
+	font-size: 20px;
+	line-height: 1.45455;
+	font-weight: 300;
+	margin-top: .75em;
+}
+.os-t{
+	background-image: url(../images/Watch/neirong/15.png);
+}
+.yg-t{
+	background-image: url(../images/Watch/neirong/16.png);
+}
+.banner-mu{
+	background-image: url(../images/Music/banner/1.png);
+	width: 100%;
+	height: 100vh;
+	min-height: 835px;
+	background-size: cover;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	box-sizing: border-box;
+}
+.ml-t{
+	background-image: url(../images/Music/banner/2.png);
+	width: 175px;
+	height: 42px;
+	background-size: 175px 42px;
+	background-repeat: no-repeat;
+}
+.but{
+	background-color: #FF365D;
+	border: 0;
+	border-radius: 5px;
+	padding: 5px 15px;
+	color: #fff;
+	font-size: 15px;
+	font-weight: 400;
+	min-width: 30px;
+	margin-top: 10px;
+}
+.mu-l{
+	position: absolute;
+	top:850%;
+	left: 24%;
+}
+.mu-l h1{
+	margin-top: 11px;
+	margin-bottom: 26px;
+	font-size: 44px;
+	font-weight: 300;
+	color: #fff;
+}
+.mu-l a{
+	margin-top: .7em;
+	font-size: 13px;
+	line-height: 1.5;
+	font-weight: 400;
+	color: #fff;
+}
+.mu-jz{
+	max-width: 1300px;
+	width: 100%;
+	background-color: #fff;
+	position: absolute;
+	z-index: 236;
+	top: -168px;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	margin-bottom: 168px;
+}
+.mu-jj{
+	width: 1123px;
+	margin: auto;
+	padding-top: 64px;
+}
+.mu-jj h2{
+	margin: 0px;
+}
+.gd-t{
+	background-image: url(../images/Music/neirong/1.png);
+	width: 546px;
+	height: 546px;
+	background-size: 546px 546px;
+	background-repeat: no-repeat;
+	margin-top: 78px;
+}
+.mu-gd{
+	width: 546px;
+}
+.mu-zd{
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content:space-between;
+	justify-content: space-between;
+	-webkit-flex-wrap:wrap;
+	flex-wrap: wrap;	
+}
+.t1{
+	background-image: url(../images/Music/neirong/2.png);
+}
+.t2{
+	background-image: url(../images/Music/neirong/3.png);
+}
+.t3{
+	background-image: url(../images/Music/neirong/4.png);
+}
+.mu-gd p{
+	margin-top: 30px;
+	font-size: 20px;
+	font-weight: 400;
+}
+.mu-gd h3{
+	margin-bottom: 12px;
+	font-size: 30px;
+	font-weight: 500;
+}
+.mu-gd a{
+	color: #888;
+	font-size: 12px;
+	font-weight: 400;
+	margin-top: .75em;
+}
+.air-z{
+	width: 33.333333%;
+	float: left;
+	margin-top: 35%;
+}
+.air-t{
+	background-image: url(../images/Music/neirong/5.png);
+	width: 588px;
+	height: 940px;
+	background-size: 588px 940px;
+	background-repeat: no-repeat;
+	margin-top: 52px;
+	margin-left: 40%;
+}
+.air-z p{
+	margin-bottom: 20px;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 1;
+}
+.air-z h2{
+	margin-bottom: 20px;
+	font-size: 34px;
+	font-family: 微软雅黑;
+	font-weight: 500;
+}
+.air-z a{
+	color: #333;
+	font-size: 15px;
+	font-weight: 400;
+}
+.ipod-t{
+	background-image: url(../images/Music/neirong/6.png);
+	width: 730px;
+	height: 741px;
+	background-size: 730px 741px;
+	background-repeat: no-repeat;
+	margin-left: 30%;
+}
+.peijian-t{
+	background-image: url(../images/Music/neirong/7.png);
+	width: 718px;
+	height: 773px;
+	background-size: 718px 773px;
+	background-repeat: no-repeat;
+	margin-left: 32%;
+}
+.itunes-t{
+	background-image: url(../images/Music/neirong/8.png);
+	width: 1227px;
+	height: 750px;
+	background-size: 1227px 750px;
+	background-repeat: no-repeat;
+	margin-left: 20%;
+}
+.Ast-t{
+	background-image: url(../images/Music/neirong/9.png);
+	width: 507px;
+	height: 438px;
+	background-size: 507px 438px;
+	background-repeat: no-repeat;
+	margin-left: 51%;
+}
+.mu-app-t{
+	background-image: url(../images/Music/neirong/10.png);
+	width: 942px;
+	height: 494px;
+	background-size: 942px 494px;
+	background-repeat: no-repeat;
+	margin: auto;
+	margin-top: 62px;
+	margin-bottom: 115px;
+}
+.sqs{
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content:space-between;
+	justify-content: space-between;	
+}
+.mu-bw{
+	width: 25%;
+}
+.mu-lo-1{
+	background-image: url(../images/Music/logo/1.png);
+	width: 70px;
+	height: 85px;
+	background-size: 70px 85px;
+	background-repeat: no-repeat;
+}
+.mu-lo-2{
+	background-image: url(../images/Music/logo/2.png);
+	width: 65px;
+	height: 85px;
+	background-size: 65px 85px;
+	background-repeat: no-repeat;
+}
+.mu-lo-3{
+	background-image: url(../images/Music/logo/3.png);
+	width: 66px;
+	height: 77px;
+	background-size: 66px 77px;
+	background-repeat: no-repeat;
+}
+.mu-lo-4{
+	background-image: url(../images/Music/logo/4.png);
+	width: 65px;
+	height: 80px;
+	background-size: 65px 80px;
+	background-repeat: no-repeat;
+}
+.mu-bw p{
+	padding-right: 32px;
+	font-size: 15px;
+	margin-bottom: 15px;
+}
+.mu-bw a{
+	font-size: 15px;
+	color: #333;
+}
+.mu-logo{
+	background-image: url(../images/Music/logo/5.png);
+	width: 71px;
+	height: 71px;
+	background-size: 71px 71px;
+	background-repeat: no-repeat;
+	margin-left: 60px;
+}
+.mu-row{
+	width: 980px;
+	margin: auto;
+	border-top: 1px solid #d6d6d6;
+	padding: 132px 0;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content:center;
+	justify-content: center;	
+}
+.mu-l-z{
+	width: 50%;
+	margin-top: -20px;
+	margin-left: 40px;
+}
+.mu-l-z h3{
+	font-size: 30px;
+	font-weight: 500;
+	color: #333;
+}
+.mu-l-z p{
+	margin-top: .75em;
+	font-size: 15px;
+	font-weight: 400;
+}
+.mu-l-z a{
+	color: #333;
+}
